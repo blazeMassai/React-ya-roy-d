@@ -30,7 +30,7 @@ const Count = styled.div`
 
 const Card = ({ data }) => (
   <CardWrapper>
-    <Title>{data.title}</Title>
+    <Title>{ data.title }</Title>
     <Meta>
       <Count>
         {`Views: ${data.view_count} | Answers: ${data.answer_count}`}

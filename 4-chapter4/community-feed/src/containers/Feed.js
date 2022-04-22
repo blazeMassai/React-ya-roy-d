@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Card from '../components/Card/Card';
+import {Link} from 'react-router-dom'
+import './Feed.css'
 
 const FeedWrapper = styled.div`
   display: flex;
@@ -13,7 +15,8 @@ const Alert = styled.div`
   text-align: center;
 `;
 
-const ROOT_API = 'https://api.stackexchange.com/2.3/';
+
+const ROOT_API = 'https://api.stackexchange.com/2.2/';
 
 class Feed extends Component {
   constructor() {
@@ -55,9 +58,11 @@ class Feed extends Component {
 
     return (
       <FeedWrapper>
-        {data.items.map(item => (
-          <Card key={item.question_id} data={item} />
-        ))}
+        {data.items.map(item =>
+             <Link id="link" to={`/questions/${item.question_id}`}>
+                    <Card key={item.question_id} data={item} />
+             </Link>
+        )}
       </FeedWrapper>
     );
   }
